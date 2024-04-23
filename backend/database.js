@@ -1,20 +1,30 @@
 import fs from "fs";
 import csv from "csv-parser";
-import pkg from 'pg';
-import "dotenv/config"
+import pkg from "pg";
+import "dotenv/config";
 
 const { Pool } = pkg;
-
-
 
 const pool = new Pool({
     user: process.env.user,
     host: process.env.host,
     database: process.env.database,
     password: process.env.password,
-    port: process.env.port,
+    port: process.env.port
 });
 
+// const check = async () => {
+//     try {
+//         const client = await pool.connect();
+//         await client.query(`SELECT * from users`);
+//         console.log("Users table created successfully");
+//         client.release();
+//     } catch (error) {
+//         console.error("Error creating users table:", error);
+//     }
+// };
+
+// check();
 
 export default pool;
 
@@ -43,8 +53,6 @@ export default pool;
 // // Call the function to create the users table
 // createUsersTable();
 
-
-
 // (async () => {
 //     const client = await pool.connect();
 //     try {
@@ -69,11 +77,9 @@ export default pool;
 //     }
 // })();
 
-
 // // Read the CSV file and parse it into an array
 // const csvFilePath = "./sales_data.csv";
 // const dataArray = [];
-
 
 // // ------------------------------------------- Read CSV file and add Data to database -------------------------------------
 // fs.createReadStream(csvFilePath)

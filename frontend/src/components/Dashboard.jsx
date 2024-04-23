@@ -70,7 +70,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <div className="row-1">
                 <div className="column">
-                    <span className="sales--data">Sales: </span>
+                    {/* <span className="sales--data">Sales: </span> */}
                     <Chart1 sales={sales} labels={labels} label="Sales" text="Sales per Month" />
                 </div>
                 <div className="column">
