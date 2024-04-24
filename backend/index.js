@@ -2,9 +2,10 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import pool from "./database.js";
+import "dotenv/config";
 
 const app = express();
-const port = 3080;
+const port = process.env.PORT || 3080;
 
 app.use(express.json());
 app.use(cors());
@@ -90,7 +91,7 @@ app.get("/api/data", async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log(username, password);
+    // console.log(username, password);
     try {
         // Check if the user exists and the password matches
         const query = 'SELECT * FROM users WHERE username = $1 AND password = $2';
